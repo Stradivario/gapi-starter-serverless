@@ -26,7 +26,10 @@ import { readFileSync } from 'fs';
             graphql: {
                 path: '/graphql',
                 openBrowser: true,
-                writeEffects: false,
+                watcherPort: 8967,
+                writeEffects: true,
+                graphiql: true,
+                graphiQlPlayground: false,
                 graphiQlPath: '/graphiql',
                 authentication: AuthService,
                 graphiqlOptions: {
