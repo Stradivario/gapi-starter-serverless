@@ -1,0 +1,74 @@
+{
+  "name": "@gapi/starter-serverless",
+  "version": "0.7.297",
+  "description": "Serverless amazon lambda GraphQL",
+  "scripts": {
+    "start": "gapi start",
+    "start-proxy": "gapi start --lambda-proxy-local --path=src/main-proxy.ts",
+    "start-proxy-staging": "gapi start --lambda-proxy-staging --path=src/main-proxy.ts",
+    "start-auth": "gapi start --local --path=src/app/auth/main.ts",
+    "deploy:serverless:prod": "npm run build:lambdas && sls deploy -v --verbose --stage prod",
+    "deploy:serverless": "npm run build:lambdas && sls deploy -v --verbose",
+    "build:lambdas": "gapi build lambdas-auth",
+    "pretest": "npm run lint",
+    "lint": "tslint -c tslint.json 'src/**/*.{ts,tsx}'",
+    "test": "gapi test --local --before"
+  },
+  "author": "Kristiyan Tachev",
+  "license": "MIT",
+  "dependencies": {
+    "@gapi/auth": "git+https://github.com/Stradivario/gapi-auth.git",
+    "@gapi/core": "git+https://github.com/Stradivario/gapi-core",
+    "@gapi/microservices": "git+https://github.com/Stradivario/gapi-microservices"
+  },
+  "devDependencies": {
+    "@types/hapi": "^17.0.12",
+    "@types/jest": "^22.2.0",
+    "@types/node": "^10.5.1",
+    "graphql-tester": "0.0.5",
+    "typescript": "^2.7.1",
+    "jest": "^22.4.2",
+    "jest-cli": "^22.4.2",
+    "serverless-offline": "^3.21.1",
+    "ts-jest": "^22.4.1",
+    "ts-lint": "^4.5.1"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "./src/**/*.spec.ts"
+    ],
+    "verbose": true,
+    "exec": "ts-node ./src/main.ts",
+    "watch": [
+      "./src/**/*.ts"
+    ],
+    "events": {
+      "restart": "sleep 5 && gapi schema introspect"
+    },
+    "ext": "ts"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "testPathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageReporters": [
+      "lcov",
+      "html"
+    ],
+    "rootDir": "./",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js",
+      "json",
+      "node"
+    ],
+    "transform": {
+      "\\.(ts|tsx)$": "<rootDir>/node_modules/ts-jest/preprocessor.js"
+    },
+    "testRegex": "/src/.*\\.spec.(ts|tsx|js)$",
+    "verbose": true,
+    "collectCoverage": true
+  }
+}
