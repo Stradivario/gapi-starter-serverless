@@ -1,6 +1,6 @@
 {
   "name": "@gapi/starter-serverless",
-  "version": "1.4.6",
+  "version": "1.4.7",
   "description": "Serverless amazon lambda GraphQL",
   "scripts": {
     "start": "gapi start",
