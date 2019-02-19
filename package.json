@@ -3,7 +3,7 @@
   "version": "1.4.41",
   "description": "Serverless amazon lambda GraphQL",
   "scripts": {
-    "start": "gapi start",
+    "start": "gapi start --local --lint",
     "start-proxy": "gapi start --lambda-proxy-local --path=src/main-proxy.ts",
     "start-proxy-staging": "gapi start --lambda-proxy-staging --path=src/main-proxy.ts",
     "start-auth": "gapi start --local --path=src/app/auth/main.ts",
