@@ -17,9 +17,9 @@
   "author": "Kristiyan Tachev",
   "license": "MIT",
   "dependencies": {
-    "@gapi/auth": "^1.5.12",
-    "@gapi/core": "^1.5.12",
-    "@gapi/microservices": "^1.5.12"
+    "@gapi/auth": "^1.5.14",
+    "@gapi/core": "^1.5.14",
+    "@gapi/microservices": "^1.5.14"
   },
   "devDependencies": {
     "@types/hapi": "^17.0.12",
