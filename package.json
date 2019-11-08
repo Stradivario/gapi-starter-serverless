@@ -19,9 +19,11 @@
   "dependencies": {
     "@gapi/auth": "^1.8.18",
     "@gapi/core": "^1.8.18",
+    "graphql":"^14.5.8",
     "@gapi/microservices": "^1.8.18"
   },
   "devDependencies": {
+    "@types/graphql": "^14.5.0",
     "@types/hapi": "^17.0.12",
     "@types/jest": "^22.2.0",
     "@types/node": "^10.5.1",
